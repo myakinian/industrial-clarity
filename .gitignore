@@ -2,3 +2,6 @@ node_modules
 dist
 *.log
 .DS_Store
+
+# Never commit a real .npmrc — it holds the registry auth token
+.npmrc

@@ -1,0 +1,12 @@
+# Template for consuming/publishing this package via a Foundry first-party npm registry.
+# Copy to `.npmrc` and fill in your values. Do NOT commit the real `.npmrc` (it is gitignored).
+#
+# 1. Replace <SCOPE> with your Foundry npm scope (e.g. @your-org).
+# 2. Replace <REGISTRY_URL> with the FIRST-PARTY Foundry npm registry URL
+#    (NOT the read-only external mirror "external-npm-npmjs").
+#    It looks roughly like:
+#    https://<stack>.palantirfoundry.com/artifacts/api/repositories/<repo-rid>/contents/release/npm
+# 3. Provide the token via an environment variable rather than hardcoding it.
+
+@<SCOPE>:registry=<REGISTRY_URL>
+//<REGISTRY_HOST>/...:_authToken=${FOUNDRY_NPM_TOKEN}
