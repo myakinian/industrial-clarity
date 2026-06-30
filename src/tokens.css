@@ -1,0 +1,36 @@
+/* Design tokens — single source of truth for the POC design system. */
+:root {
+  /* Color — neutral scale */
+  --ds-color-bg: #ffffff;
+  --ds-color-surface: #f5f6f7;
+  --ds-color-border: #d8dbdf;
+  --ds-color-text: #1a1d21;
+  --ds-color-text-muted: #5c636e;
+
+  /* Color — brand / intent */
+  --ds-color-primary: #2f6df0;
+  --ds-color-primary-hover: #2557c7;
+  --ds-color-primary-text: #ffffff;
+  --ds-color-danger: #d23f3f;
+
+  /* Spacing scale (4px base) */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 24px;
+
+  /* Radii */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 8px;
+
+  /* Typography */
+  --ds-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ds-font-size-sm: 13px;
+  --ds-font-size-md: 15px;
+  --ds-font-size-lg: 18px;
+  --ds-line-height: 1.5;
+
+  /* Focus ring */
+  --ds-focus-ring: 0 0 0 3px rgba(47, 109, 240, 0.4);
+}
