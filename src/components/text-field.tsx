@@ -7,46 +7,17 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-const wrapperStyle: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "var(--ds-space-1)",
-  fontFamily: "var(--ds-font-sans)",
-};
-
-const labelStyle: React.CSSProperties = {
-  fontSize: "var(--ds-font-size-sm)",
-  fontWeight: 600,
-  color: "var(--ds-color-text)",
-};
-
-const inputStyle: React.CSSProperties = {
-  fontFamily: "var(--ds-font-sans)",
-  fontSize: "var(--ds-font-size-md)",
-  lineHeight: "var(--ds-line-height)",
-  color: "var(--ds-color-text)",
-  background: "var(--ds-color-bg)",
-  border: "1px solid var(--ds-color-border)",
-  borderRadius: "var(--ds-radius-sm)",
-  padding: "var(--ds-space-2) var(--ds-space-3)",
-};
-
-const messageStyle: React.CSSProperties = {
-  fontSize: "var(--ds-font-size-sm)",
-  color: "var(--ds-color-text-muted)",
-};
-
-/** Labeled text input with optional hint/error messaging. */
+/** Labeled text input styled after the Atlassian Design System text field. */
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-  ({ label, hint, error, id, className, style, ...props }, ref) => {
+  ({ label, hint, error, id, className, ...props }, ref) => {
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const describedById = error || hint ? `${inputId}-msg` : undefined;
 
     return (
-      <div className={cn("ds-text-field", className)} style={wrapperStyle}>
+      <div className={cn("ds-field", className)}>
         {label ? (
-          <label htmlFor={inputId} style={labelStyle}>
+          <label htmlFor={inputId} className="ds-field__label">
             {label}
           </label>
         ) : null}
@@ -55,21 +26,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           id={inputId}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedById}
-          style={{
-            ...inputStyle,
-            ...(error ? { borderColor: "var(--ds-color-danger)" } : null),
-            ...style,
-          }}
+          className={cn("ds-field__input", error && "ds-field__input--error")}
           {...props}
         />
         {error || hint ? (
-          <span
-            id={describedById}
-            style={{
-              ...messageStyle,
-              ...(error ? { color: "var(--ds-color-danger)" } : null),
-            }}
-          >
+          <span id={describedById} className={cn("ds-field__msg", error && "ds-field__msg--error")}>
             {error ?? hint}
           </span>
         ) : null}
